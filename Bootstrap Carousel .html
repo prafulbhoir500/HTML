@@ -1,0 +1,47 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CarouselRepeater.aspx.cs" Inherits="YourNamespace.CarouselRepeater" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Carousel with Repeater</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container mt-4">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                    <asp:Repeater ID="rptIndicators" runat="server">
+                        <ItemTemplate>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%# Container.ItemIndex %>" 
+                                    class='<%# Container.ItemIndex == 0 ? "active" : "" %>' aria-current='<%# Container.ItemIndex == 0 ? "true" : "false" %>'
+                                    aria-label='<%# "Slide " + (Container.ItemIndex + 1) %>'></button>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+                <div class="carousel-inner">
+                    <asp:Repeater ID="rptCarouselItems" runat="server">
+                        <ItemTemplate>
+                            <div class='carousel-item <%# Container.ItemIndex == 0 ? "active" : "" %>'>
+                                <img src='<%# Eval("ImageUrl") %>' class="d-block w-100" alt='<%# Eval("AltText") %>'>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
