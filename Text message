@@ -1,0 +1,7 @@
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+<asp:RegularExpressionValidator ID="RegexValidator" runat="server"
+    ControlToValidate="TextBox1"
+    ValidationExpression="^(?:(.)(?!(?:.*\1){5}))*$"
+    ErrorMessage="Please enter a valid input with no more than 5 repeated characters."
+    Display="Dynamic">
+</asp:RegularExpressionValidator>
