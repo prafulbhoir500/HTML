@@ -5,3 +5,20 @@
     ErrorMessage="Please enter a valid input with no more than 5 repeated characters."
     Display="Dynamic">
 </asp:RegularExpressionValidator>
+
+
+SELECT 
+    customer.*, 
+    company.company_name AS customer_company_name,
+    ledger.*,
+    linked_company.company_name AS linked_company_name
+FROM 
+    customer
+JOIN 
+    company ON customer.company_id = company.company_id
+JOIN 
+    ledger ON company.company_id = ledger.company_id
+JOIN 
+    company AS linked_company ON ledger.linked_company_id = linked_company.company_id
+WHERE 
+    ledger.linked_company_id != company.company_id;
