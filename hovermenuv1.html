@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Overflow Handling</title>
+    <style>
+        /* General table styling */
+        table {
+            /* width: 100%; */
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        /* Dropdown container styling */
+        .dropdown-container {
+            position: relative;
+        }
+
+        /* Style the link */
+        .dropdown-trigger {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .dropdown-trigger:hover {
+            text-decoration: underline;
+        }
+
+        /* Dropdown content styling */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            /* Position to the right of the trigger */
+            background-color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1;
+            min-width: 150px;
+        }
+
+        .dropdown-content ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-content ul li {
+            padding: 5px 0;
+        }
+
+        .dropdown-content ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .dropdown-content ul li a:hover {
+            color: #007bff;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown-container:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Table with Dropdown (Overflow Handling)</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">John Doe</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>30</td>
+                <td>New York</td>
+            </tr>
+            <tr>
+                <td class="dropdown-container">
+                    <a href="#" class="dropdown-trigger">Jane Smith</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Messages</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>25</td>
+                <td>Los Angeles</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.querySelectorAll('.dropdown-container').forEach(container => {
+            container.addEventListener('mouseover', () => {
+                const dropdown = container.querySelector('.dropdown-content');
+                const rect = dropdown.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+
+                if (rect.bottom > viewportHeight) {
+                    dropdown.style.top = 'auto'; // Reset top
+                    dropdown.style.bottom = '0'; // Position from bottom
+                } else {
+                    dropdown.style.top = '0'; // Default positioning
+                    dropdown.style.bottom = 'auto'; // Reset bottom
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
