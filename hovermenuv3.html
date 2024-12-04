@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Overflow Detection</title>
+    <style>
+        /* Basic styling for menu */
+        .menu {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            margin: 50px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            /* Hide overflowing content */
+        }
+
+        .item {
+            width: 100px;
+            position: relative;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        /* Dropdown styling */
+        .dropdown {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 5px;
+            width: 150px;
+            /* Make dropdown scrollable if too long */
+        }
+
+        .dropdown-item {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .dropdown-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Show dropdown on hover */
+        .item:hover .dropdown {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="menu">
+        <div class="item">
+            Item 1
+            <div class="dropdown">
+                <div class="dropdown-item">Sub Item 1</div>
+                <div class="dropdown-item">Sub Item 2</div>
+            </div>
+        </div>
+        <div class="item">
+            Item 2
+            <div class="dropdown">
+                <div class="dropdown-item">Sub Item 3</div>
+                <div class="dropdown-item">Sub Item 4</div>
+            </div>
+        </div>
+        <div class="item">
+            Item 3 (Large Dropdown)
+            <div class="dropdown">
+                <div class="dropdown-item">Sub Item 5</div>
+                <div class="dropdown-item">Sub Item 6</div>
+                <div class="dropdown-item">Sub Item 7</div>
+                <div class="dropdown-item">Sub Item 8</div>
+                <div class="dropdown-item">Sub Item 9</div>
+                <div class="dropdown-item">Sub Item 10</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuItems = document.querySelectorAll('.item');
+
+            menuItems.forEach(item => {
+                const dropdown = item.querySelector('.dropdown');
+                const menu = document.querySelector('.menu');
+
+                item.addEventListener('mouseenter', () => {
+                    // Get the position and dimensions of the dropdown and parent item
+                    const dropdownRect = dropdown.getBoundingClientRect();
+                    const parentRect = menu.getBoundingClientRect();
+
+                    // Check if the dropdown overflows the parent container
+                    if (dropdownRect.bottom > parentRect.bottom) {
+                        dropdown.style.bottom = '0';
+                        console.log("Dropdown menu goes below the parent class.");
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
